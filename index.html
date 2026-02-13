@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>For Sanika 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+```
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #ffeef8 0%, #fff4f9 50%, #ffe9f3 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        touch-action: manipulation;
+    }
+
+    /* Floating hearts background */
+    .hearts-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .floating-heart {
+        position: absolute;
+        font-size: 25px;
+        animation: float-heart 8s infinite ease-in-out;
+        opacity: 0.6;
+    }
+
+    @keyframes float-heart {
+        0%, 100% {
+            transform: translateY(100vh) translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+        }
+        50% {
+            transform: translateY(50vh) translateX(50px) rotate(180deg);
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-10vh) translateX(-30px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .sparkle {
+        position: fixed;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .sparkle-particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkle-float 2s ease-out infinite;
+    }
+
+    @keyframes sparkle-float {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) scale(0);
+            opacity: 0;
+        }
+    }
+
+    .container {
+        text-align: center;
+        background: #ffffff;
+        padding: 70px 60px;
+        border-radius: 20px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        max-width: 580px;
+        position: relative;
+        z-index: 10;
+        border: 1px solid rgba(255, 192, 203, 0.08);
+    }
+
+    .emoji-container {
+        margin-bottom: 35px;
+        animation: bounce-cute 2s infinite ease-in-out;
+    }
+
+    .emoji-container img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        opacity: 0.95;
+    }
+
+    @keyframes bounce-cute {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            transform: translateY(-12px) scale(1.02);
+        }
+    }
+
+    h1 {
+        font-family: 'Crimson Text', serif;
+        font-size: 2.2em;
+        color: #2d2d2d;
+        margin-bottom: 10px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+
+    .name {
+        font-family: 'Crimson Text', serif;
+        font-size: 2.8em;
+        color: #ff6b9d;
+        margin-bottom: 40px;
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+
+    .question {
+        font-size: 1.15em;
+        color: #5a5a5a;
+        margin-bottom: 50px;
+        font-weight: 300;
+        line-height: 1.8;
+        letter-spacing: 0.3px;
+    }
+
+    .question strong {
+        color: #ff6b9d;
+        font-weight: 500;
+    }
+
+    .buttons-container {
+        position: relative;
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    button {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.05em;
+        padding: 16px 44px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        position: relative;
+        letter-spacing: 0.3px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        min-height: 48px;
+    }
+
+    #yesBtn {
+        background: #ff6b9d;
+        color: white;
+        transform: scale(1);
+        z-index: 100;
+    }
+
+    #yesBtn:hover {
+        background: #ff5489;
+        transform: scale(1.02);
+        box-shadow: 0 4px 16px rgba(255, 107, 157, 0.25);
+    }
+
+    #noBtn {
+        background: #f5f5f5;
+        color: #888;
+        transform: scale(1);
+        border: 1px solid #e8e8e8;
+    }
+
+    #noBtn:hover {
+        background: #efefef;
+        transform: scale(0.98);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .hint {
+        margin-top: 35px;
+        font-size: 0.9em;
+        color: #aaa;
+        font-style: italic;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        font-weight: 300;
+        letter-spacing: 0.2px;
+    }
+
+    .hint.show {
+        opacity: 1;
+    }
+
+    /* Final screen */
+    .final-screen {
+        display: none;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffdeeb 0%, #ffc9dd 100%);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        animation: fadeIn 0.8s ease;
+    }
+
+    .final-screen.show {
+        display: flex;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .final-emoji {
+        animation: celebration-bounce 0.8s infinite ease-in-out;
+        margin-bottom: 35px;
+    }
+
+    .final-emoji img {
+        width: 140px;
+        height: 140px;
+        object-fit: contain;
+        opacity: 0.95;
+    }
+
+    @keyframes celebration-bounce {
+        0%, 100% {
+            transform: scale(1) rotate(-5deg);
+        }
+        50% {
+            transform: scale(1.08) rotate(5deg);
+        }
+    }
+
+    .final-message {
+        color: #2d2d2d;
+        font-family: 'Crimson Text', serif;
+        font-size: 3em;
+        font-weight: 600;
+        margin-bottom: 25px;
+        animation: slideIn 0.8s ease;
+        letter-spacing: 0.5px;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .final-text {
+        color: #4a4a4a;
+        font-size: 1.25em;
+        max-width: 650px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+        font-weight: 300;
+        animation: slideIn 1s ease;
+        letter-spacing: 0.3px;
+    }
+
+    .final-text strong {
+        font-weight: 500;
+        color: #2d2d2d;
+    }
+
+    .love-note {
+        color: #666;
+        font-size: 1.15em;
+        font-style: italic;
+        margin-top: 35px;
+        animation: slideIn 1.2s ease;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+    }
+
+    /* Confetti */
+    .confetti-piece {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: white;
+        animation: confetti-fall 4s linear infinite;
+        z-index: 10001;
+    }
+
+    @keyframes confetti-fall {
+        to {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+    /* Celebration hearts */
+    .celebration-heart {
+        position: fixed;
+        font-size: 40px;
+        animation: heart-rise 3s ease-out infinite;
+        z-index: 10001;
+    }
+
+    @keyframes heart-rise {
+        0% {
+            transform: translateY(100vh) scale(0) rotate(0deg);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) scale(1) rotate(180deg);
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 20px;
+        }
+        .container {
+            padding: 50px 30px;
+            max-width: 100%;
+            border-radius: 25px;
+        }
+        .emoji-container img {
+            width: 90px;
+            height: 90px;
+        }
+        h1 {
+            font-size: 1.6em;
+        }
+        .name {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 1em;
+            margin-bottom: 40px;
+        }
+        .buttons-container {
+            flex-direction: column;
+            gap: 20px;
+            min-height: 160px;
+        }
+        button {
+            font-size: 1em;
+            padding: 18px 50px;
+            width: 100%;
+            max-width: 280px;
+        }
+        .hint {
+            font-size: 0.85em;
+            margin-top: 25px;
+        }
+        .final-emoji img {
+            width: 120px;
+            height: 120px;
+        }
+        .final-message {
+            font-size: 2em;
+            padding: 0 20px;
+        }
+        .final-text {
+            font-size: 1.1em;
+            padding: 0 20px;
+        }
+        .love-note {
+            font-size: 1em;
+            padding: 0 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 40px 25px;
+        }
+        .emoji-container img {
+            width: 80px;
+            height: 80px;
+        }
+        h1 {
+            font-size: 1.4em;
+        }
+        .name {
+            font-size: 1.9em;
+        }
+        .question {
+            font-size: 0.95em;
+        }
+        button {
+            font-size: 0.95em;
+            padding: 16px 40px;
+        }
+        .final-message {
+            font-size: 1.7em;
+        }
+        .final-text {
+            font-size: 1em;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="hearts-bg" id="heartsBg"></div>
+    <div class="sparkle" id="sparkle"></div>
+
+```
+<div class="container" id="mainContainer">
+    <div class="emoji-container">
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmxoYW9vZ2FseTBkMWVqOWRqb3prODVleGd6eXFzeTVlMXQ2NHM4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KztT2c4u8mYYUiMKdJ/giphy.gif" alt="Love">
+    </div>
+    <h1>Hey</h1>
+    <div class="name">Sanika ✨</div>
+    <p class="question">
+        I've been thinking about this...<br>
+        and I really need to know something important.<br>
+        <strong>Will you be my Valentine?</strong> 🌹
+    </p>
+    <div class="buttons-container">
+        <button id="yesBtn">Yes! 💖</button>
+        <button id="noBtn">No 💔</button>
+    </div>
+    <div class="hint" id="hint">Hmm... are you sure? 🤔</div>
+</div>
+
+<div class="final-screen" id="finalScreen">
+    <div class="final-emoji">
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGw2bXBjb2hqNGVtM2poN2I1MmVlMnRmeGpjOHlvZG9pY3hoNHo3ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/uWzDsAsRm2X9qULHLs/giphy.gif" alt="Celebration">
+    </div>
+    <div class="final-message">I KNEW IT! 💕</div>
+    <div class="final-text">
+        Sanika, you have no idea how happy this makes me!<br>
+        <strong>You're the best thing that's ever happened to me.</strong>
+    </div>
+    <div class="final-text">
+        Every text, every call, every moment with you...<br>
+        even from miles away,<br>
+        makes everything feel right.
+    </div>
+    <div class="love-note">
+        Happy Valentine's Day, beautiful 💝<br>
+        Can't wait until we're together again
+    </div>
+</div>
+
+<script>
+    // Floating hearts
+    function createFloatingHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerHTML = ['💕', '💖', '💗', '💝'][Math.floor(Math.random() * 4)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (Math.random() * 15 + 20) + 'px';
+        heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        document.getElementById('heartsBg').appendChild(heart);
+        
+        setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createFloatingHeart, 400);
+
+    // Sparkles
+    function createSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle-particle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() + 's';
+        document.getElementById('sparkle').appendChild(sparkle);
+        
+        setTimeout(() => sparkle.remove(), 2000);
+    }
+
+    setInterval(createSparkle, 100);
+
+    // Preload all GIFs for instant switching
+    const gifs = [
+        'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmxoYW9vZ2FseTBkMWVqOWRqb3prODVleGd6eXFzeTVlMXQ2NHM4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KztT2c4u8mYYUiMKdJ/giphy.gif', // cute heart (initial)
+        'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHU0dXE3eDRkZGM1eWx3ZXB5ZjIydmExNXh5ZHd6ZTFvNTN3dmp6ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif', // sad cat
+        'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTR0eGNkdGxocGVlbGRrdjdoMDR1aWp6YTJoaGhkemp0dW1vNGt6aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/d2lcHJTG5Tscg/giphy.gif', // puppy eyes
+        'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm0xMzZxMDhtbHNlNjY4Ymw0c2E2ZWdnMzI4bWI5NTBzM3ljbXo2MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/L95W4wv8nnb9K/giphy.gif', // crying
+        'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXNiMDZiZjl5ZXN1Y3oxMGgyNHlpYzd4anNwMzY4bHUwOXd4bTRhNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OPU6wzx8JrHna/giphy.gif', // please
+        'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWZ5Yzh0MWVzMXBsMWV4bDU5Y3J4ZGN5YW12eGhyeWo3bm5heDJuZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/G96zgIcQn1L2xpmdxi/giphy.gif' // excited/happy hearts
+    ];
+
+    // Preload all GIFs in the background
+    gifs.forEach(gifUrl => {
+        const img = new Image();
+        img.src = gifUrl;
+    });
+
+    // Button interactions
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const hint = document.getElementById('hint');
+    const mainGif = document.querySelector('.emoji-container img');
+    
+    let noClickCount = 0;
+    let noHoverCount = 0;
+    let yesScale = 1;
+    let noScale = 1;
+
+    // Change GIF when hovering over Yes button (excited/happy)
+    yesBtn.addEventListener('mouseenter', function() {
+        mainGif.src = gifs[5]; // Show excited hearts GIF
+    });
+
+    // Touch support for mobile - change GIF on touch start
+    yesBtn.addEventListener('touchstart', function(e) {
+        mainGif.src = gifs[5]; // Show excited hearts GIF
+    }, { passive: true });
+
+    // Restore GIF when leaving Yes button (unless No was hovered before)
+    yesBtn.addEventListener('mouseleave', function() {
+        if (noHoverCount === 0) {
+            mainGif.src = gifs[0]; // Back to initial cute heart
+        } else {
+            // Keep the current "no" GIF
+            mainGif.src = gifs[Math.min(noHoverCount, gifs.length - 2)];
+        }
+    });
+
+    // Change GIF on hover over No button
+    noBtn.addEventListener('mouseenter', function() {
+        noHoverCount++;
+        if (noHoverCount < gifs.length) {
+            mainGif.src = gifs[noHoverCount];
+        } else {
+            // Keep showing the last (most desperate) GIF
+            mainGif.src = gifs[gifs.length - 1];
+        }
+    });
+
+    // Touch support for mobile - change GIF when touching No button
+    noBtn.addEventListener('touchstart', function(e) {
+        noHoverCount++;
+        if (noHoverCount < gifs.length) {
+            mainGif.src = gifs[noHoverCount];
+        } else {
+            // Keep showing the last (most desperate) GIF
+            mainGif.src = gifs[gifs.length - 1];
+        }
+    }, { passive: true });
+
+    noBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        noClickCount++;
+        
+        // Shrink No button
+        noScale = Math.max(0.2, noScale - 0.15);
+        noBtn.style.transform = `scale(${noScale})`;
+        
+        // Grow Yes button
+        yesScale += 0.3;
+        yesBtn.style.transform = `scale(${yesScale})`;
+        
+        // Show hint after first click
+        if (noClickCount === 1) {
+            hint.classList.add('show');
+        }
+        
+        // Update hint text
+        if (noClickCount === 2) {
+            hint.textContent = "Come on, Sanika... you know the answer 😊";
+        } else if (noClickCount === 3) {
+            hint.textContent = "The Yes button is getting bigger for a reason! 💕";
+        } else if (noClickCount >= 4) {
+            hint.textContent = "Just say yes already! 🥺💖";
+        }
+        
+        // Make Yes button cover screen
+        if (yesScale >= 3.5) {
+            yesBtn.style.position = 'fixed';
+            yesBtn.style.top = '50%';
+            yesBtn.style.left = '50%';
+            yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
+            yesBtn.style.zIndex = '9999';
+        }
+        
+        // Add shake animation to No button
+        noBtn.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+            noBtn.style.animation = '';
+        }, 500);
+    });
+
+    yesBtn.addEventListener('click', function() {
+        showFinalScreen();
+    });
+
+    // Shake animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) scale(${noScale}); }
+            25% { transform: translateX(-10px) scale(${noScale}); }
+            75% { transform: translateX(10px) scale(${noScale}); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Final screen
+    function showFinalScreen() {
+        document.getElementById('finalScreen').classList.add('show');
+        
+        // Create confetti
+        for (let i = 0; i < 150; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.background = ['#ff6b9d', '#ffb3d1', '#ffd4e5', '#ffe9f3', '#ffffff'][Math.floor(Math.random() * 5)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }, i * 20);
+        }
+        
+        // Create celebration hearts
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'celebration-heart';
+            heart.innerHTML = ['💕', '💖', '💗', '💝', '❤️'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.bottom = '-50px';
+            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            heart.style.animationDelay = Math.random() * 0.5 + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 4000);
+        }, 200);
+    }
+</script>
+```
+
+</body>
+</html>
