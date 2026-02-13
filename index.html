@@ -242,6 +242,8 @@
         align-items: center;
         flex-direction: column;
         animation: fadeIn 0.8s ease;
+        padding: 20px;
+        overflow-y: auto;
     }
 
     .final-screen.show {
@@ -403,21 +405,33 @@
             font-size: 0.85em;
             margin-top: 25px;
         }
+        .final-screen {
+            padding: 40px 25px;
+            justify-content: flex-start;
+            padding-top: 80px;
+        }
+        .final-emoji {
+            margin-bottom: 25px;
+        }
         .final-emoji img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
         }
         .final-message {
-            font-size: 2em;
-            padding: 0 20px;
+            font-size: 1.8em;
+            padding: 0 15px;
+            margin-bottom: 20px;
         }
         .final-text {
-            font-size: 1.1em;
-            padding: 0 20px;
+            font-size: 1em;
+            padding: 0 15px;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
         .love-note {
-            font-size: 1em;
-            padding: 0 20px;
+            font-size: 0.95em;
+            padding: 0 15px;
+            margin-top: 25px;
         }
     }
 
@@ -442,11 +456,48 @@
             font-size: 0.95em;
             padding: 16px 40px;
         }
+        .final-screen {
+            padding: 30px 20px;
+            padding-top: 60px;
+        }
+        .final-emoji img {
+            width: 90px;
+            height: 90px;
+        }
+        .final-message {
+            font-size: 1.6em;
+            padding: 0 10px;
+        }
+        .final-text {
+            font-size: 0.95em;
+            padding: 0 10px;
+        }
+        .love-note {
+            font-size: 0.9em;
+            padding: 0 10px;
+        }
+    }
+
+    /* iPhone 13 specific (390px x 844px) */
+    @media (max-width: 430px) and (min-height: 800px) {
+        .final-screen {
+            padding: 50px 25px;
+            padding-top: 100px;
+        }
+        .final-emoji img {
+            width: 95px;
+            height: 95px;
+        }
         .final-message {
             font-size: 1.7em;
+            margin-bottom: 18px;
         }
         .final-text {
             font-size: 1em;
+            margin-bottom: 14px;
+        }
+        .love-note {
+            font-size: 0.95em;
         }
     }
 </style>
@@ -655,6 +706,10 @@
 
     // Final screen
     function showFinalScreen() {
+        // Hide the main container
+        document.getElementById('mainContainer').style.display = 'none';
+        
+        // Show final screen
         document.getElementById('finalScreen').classList.add('show');
         
         // Create confetti
